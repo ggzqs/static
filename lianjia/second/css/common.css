@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font: normal normal 14px "Mircosoft YaHei";
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+select{
+	outline: none;
+	border: none;
+}
+ul li{
+	list-style: none;
+	display: inline-block;
+}
+input{
+	outline: none;
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		.all{
+			width: 350px;
+			height: 520px;
+			border: 1px solid red;
+			margin-left: 38%;
+			margin-top: 5%;
+		}
+		.one{
+			height: 50px;
+			background-color: #E4305F;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+			position: relative;
+		}
+		.one1{
+			position: absolute;
+			top: 10px;
+			left: 150px;
+		}
+		.one2{
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+		.two{
+			margin-left: 70px;
+			margin-top: 20px;
+			font-size: 16px;
+		}
+		.two a{
+			color: #E4305F;
+		}
+		.two span:nth-child(2){
+			margin-left: 20px;
+		}
+		.two span:last-child{
+			margin-left: 30px;
+		}
+		.three{
+			border-radius: 8px;
+			width: 260px;
+			height: 30px;
+			border: 1px solid #E7E7E7;
+			background-color: #F4F4F4;
+			margin-left: 50px;
+			margin-top: 40px;
+			position: relative;
+		}
+		.three1{
+			margin-left: 5px;
+			position: absolute;
+			top: 6px;
+		}
+		.three2{
+			margin-left: 80px;
+			position: absolute;
+			top: 5px;
+		}
+		#text{
+			margin-left: 90px;
+			margin-top: 10px;
+			width: 160px;
+			background-color: #F4F4F4;
+			border: none;
+		}
+		.four{
+			border-radius: 8px;
+			width: 200px;
+			height: 30px;
+			border: 1px solid #E7E7E7;
+			background-color: #F4F4F4;
+			margin-left: 50px;
+			margin-top: 40px;
+			position: relative;
+		}
+		.four1{
+			margin-left: 5px;
+			position: absolute;
+			top: 6px;
+		}
+		.four2{
+			margin-left: 80px;
+			position: absolute;
+			top: 5px;
+		}
+		#check{
+			margin-left: 90px;
+			margin-top: 10px;
+			width: 80px;
+			background-color: #F4F4F4;
+			border: none;
+		}
+		p{
+			border-radius: 8px;
+			width: 50px;
+			height: 30px;
+			border: 1px solid #E7E7E7;
+			font-size: 12px;
+			background-color: #F4F4F4;
+			margin-left: 210px;
+			margin-top: -27px;
+			position: relative;
+		}
+		p span:first-child{
+			position: absolute;
+			bottom: 16px;
+			left: 14px;
+		}
+		p span:last-child{
+			position: absolute;
+			left: 8px;
+			bottom: 1px;
+		}
+		.five{
+			border-radius: 8px;
+			width: 260px;
+			height: 30px;
+			border: 1px solid #E7E7E7;
+			background-color: #F4F4F4;
+			margin-left: 50px;
+			margin-top: 40px;
+			position: relative;
+		}
+		.five span:first-child{
+			margin-left: 5px;
+			position: absolute;
+			top: 6px;
+		}
+		.five span:nth-child(2){
+			margin-left: 80px;
+			position: absolute;
+			top: 5px;
+		}
+		#pwd1{
+			margin-left: 90px;
+			margin-top: 10px;
+			width: 160px;
+			background-color: #F4F4F4;
+			border: none;
+		}
+		.five #tu3{
+			margin-left: -40px;
+			position: absolute;
+			top: 10px;
+		}
+		.six{
+			border-radius: 8px;
+			width: 260px;
+			height: 30px;
+			border: 1px solid #E7E7E7;
+			background-color: #F4F4F4;
+			margin-left: 50px;
+			margin-top: 40px;
+			position: relative;
+		}
+		.six span:first-child{
+			margin-left: 5px;
+			position: absolute;
+			top: 6px;
+		}
+		.six span:nth-child(2){
+			margin-left: 80px;
+			position: absolute;
+			top: 5px;
+		}
+		#pwd2{
+			margin-left: 90px;
+			margin-top: 10px;
+			width: 160px;
+			background-color: #F4F4F4;
+			border: none;
+		}
+		.six #tu4{
+			margin-left: -40px;
+			position: absolute;
+			top: 10px;
+		}
+		.seven{
+			margin-left: 50px;
+			margin-top: 30px;
+		}
+		.seven a{
+			color: #E4305F;
+			font-size: 14px;
+		}
+		#register{
+			border-radius: 8px;
+			width: 260px;
+			height: 36px;
+			border: none;
+			background-color: #E5325C;
+			color: white;
+			font-size: 16px;
+			margin-left: 50px;
+			margin-top: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var text=document.getElementById("text");
+			var check=document.getElementById("check");
+			var pwd1=document.getElementById("pwd1");
+			var pwd2=document.getElementById("pwd2");
+			var register=document.getElementById("register");
+
+			register.onclick=function(){
+				tel=/\d{11}/ig;	
+				code=/\d{6}/ig;
+				passwd=/^\w{5,17}$/ig;
+
+				var a=tel.test(text.value);
+				var b=code.test(check.value);
+				var c=passwd.test(pwd1.value);
+				if(a){
+					if(b){
+						if(c){
+							if(pwd1.value==pwd2.value){
+								register.setAttribute("formaction","login.html");
+							}else{
+								return false;
+							}
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="" id="myForm" method="post">
+		<div class="all">
+			<div class="one">
+				<span class="one1">注册</span>
+				<span class="one2">X</span>
+			</div>
+			<div class="two">
+				<span><a href="#">手机号注册</a></span>
+				<span>|</span>
+				<span>邮箱注册</span>
+			</div>
+			<div class="three">
+				<span class="three1">手机号码</span>
+				<span class="three2">|</span>
+				<input type="text" name="tel" id="text" placeholder="请输入手机号" required>
+			</div>
+
+			<div class="four">
+				<span class="four1">验证码</span>
+				<span class="four2">|</span>
+				<input type="check" name="check code" id="check" placeholder="请输入6位验证码" required>
+				<p>
+					<span>发送</span><br>
+					<span>验证码</span>
+				</p>		
+			</div>
+			<div class="five">
+				<span>密码</span>
+				<span>|</span>
+				<input type="password" name="pwd" id="pwd1" placeholder="请输入密码" required>
+				<img src="./images/9.png" alt="" id="tu3">
+			</div>
+			<div class="six">
+				<span>确认密码</span>
+				<span>|</span>
+				<input type="password" name="pwd" id="pwd2" placeholder="请再次输入密码" required>
+				<img src="./images/9.png" alt="" id="tu4">
+			</div>
+			<div class="seven">
+				<input type="checkbox" name="subject" value="css" id="css" required="">
+					<label for="css">我已阅读并同意</label>
+				<span><a href="#">StarGame用户协议</a></span>
+			</div>
+			<div class="eight">
+				<input type="submit" value="同意协议并注册" id="register" form="myForm">
+			</div>
+		</div>
+	</form>
+</body>
+</html>

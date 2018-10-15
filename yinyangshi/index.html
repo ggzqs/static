@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+		}
+		.all{
+			background-color: black;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		.one{
+			width: 100%;
+			height: 30px;
+			background-color: white;
+		}
+		.one1{
+			float: left;
+			margin-left: 20%;
+			width: 100px;
+			height: 30px;			
+		}
+		#tu1{
+			margin-top: 10px;
+		}
+		.one2{
+			float: right;
+			margin-right: 20%;
+			margin-top: 5px;
+			width: 300px;
+			height: 30px;
+			position: relative;
+		}
+		#tu2{
+			position: absolute;
+			top: 4px;
+			right: 305px;
+		}
+		.one22{
+			margin-right: 50px;
+		}
+		.two{
+			width: 100%;
+			height: 460px;
+		}
+		#tu4{
+			width: 100%;
+			height: 460px;
+		}
+		.three{
+			width: 100%;
+			height: 230px;
+		}
+		.three1{
+			float: left;
+			width: 270px;
+			height: 240px;
+			margin-left: 20%
+		}
+		.three11{
+			margin-top: 30px;
+			position: relative;
+		}
+		.t1{
+			margin-left: 5px;
+			color: white;
+		}
+		.t2{
+			margin-left: 20px;
+			color: white;
+		}
+		.t3{
+			margin-left: 30px;
+			color: white;
+		}
+		#tu5{
+			width: 15px;
+			height: 15px;
+			margin-left: 80px;
+			position: absolute;
+			top: 1px;
+		}
+		.hr1{
+			width: 270px;
+			border: 0;
+			background-color: grey;
+			height: 1px;
+		}
+		.hr2{
+			width: 66px;
+			height: 2px;
+			background-color: red;
+			margin-top: -2px;
+		}
+		ul{
+			color: white;
+			margin-left: 18px;
+			margin-top: 36px;
+		}
+		ul li a{
+			color: white;
+			font-size: 12px;
+
+		}
+		.y{
+			float: right;
+			margin-top: -17px;
+			color: grey;
+		}
+		.three2{
+			float: left;
+			/*width: 250px;*/
+			height: 240px;
+		}
+		/*.three2 .lunbo{
+			width: 850px;
+		}*/
+		.three2 .lun{
+			width: 270px;
+			height: 200px;
+			overflow: hidden;
+		}
+		.three2>.lun>.lunbo>img{
+			width: 270px;
+			height: 190px;
+			margin-top: 30px;
+			margin-left: 10px;			
+			display: none;
+			float: left;
+		}
+		#tu6_1{
+			display: block;
+		}
+		.three2 .checkbutton{
+			position: absolute;
+			top: 690px;
+			left: 610px;
+		}
+		.three2 .checkbutton button{
+			font-size: 20px;
+			padding: 1px 16px;
+			background-color: #ccc;
+			margin-right: 10px;
+		}
+		.three3{
+			float: left;
+			margin-left: 10px;
+			width: 230px;
+			height: 190px;
+			color: white;
+			background-color: #333333;
+			background-color: rgba(51,51,51,0.4);
+			margin-top: 30px;
+		}
+		h2{
+			font-size: 16px;
+			margin-left: 10px;
+			margin-top: 5px;
+		}
+		.three31{
+			font-size: 12px;
+			margin-left: 10px;
+			display: inline-block;
+		}
+		#tu7{
+			height: 30px;
+			margin-left: 70px;
+			margin-top: 10px;
+		}
+		.footer{
+			width: 100%;
+			height: 110px;
+			background-color: #2B1426;
+		}
+		.footer1{
+			float: left;
+			margin-left: -480px;
+			width: 100px;
+			height: 100px;
+		}
+		#tu8{
+			width: 70px;
+			height: 70px;
+			margin-top: 16px;
+		}
+		.footer2{
+			float: right;
+			margin-right: 20%;
+			width: 450px;
+			height: 100px;
+			color: #9C6E91;
+		}
+		.footer21{
+			margin-left: -50px;
+			margin-top: 10px;
+		}
+		.footer a{
+			color: #9C6E91;
+		}
+		.footer22{
+			margin-left: -50px;
+			margin-top: 14px;
+		}
+		.footer22 span{
+			font-size: 12px;
+		}
+		.footer22 span:nth-child(2){
+			margin-left: 10px;
+		}
+		p{
+			font-size: 12px;
+			color: #71526A;
+		}
+
+		.current{
+			border: 2px solid yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var lunbo=document.getElementsByClassName("lunbo")[0];
+			var checkbutton=document.getElementsByClassName("checkbutton")[0];
+			var imgs=lunbo.children;
+			var buttons=checkbutton.children;
+
+			var flag=0;
+			var timeout;
+
+			//手动轮播
+			checkbutton.onmouseover=function(event){
+				var target=event.target;
+				function test(){
+					for(var e=0;e<buttons.length;e++){
+						if(target==buttons[e]){
+							return e;
+						}
+					}
+				}
+				num=test(target);
+				if(target.nodeName=="BUTTON"){
+					Array.prototype.slice.call(buttons,0).forEach(function(item){
+						item.removeAttribute("class");
+					});
+					Array.prototype.slice.call(imgs,0).forEach(function(item){
+						item.removeAttribute("class");
+					});
+					imgs[num].setAttribute("id","tu6_1");
+					target.setAttribute("class","current");
+					if(num==0){
+						imgs[0].src="./images/28.jpg";
+					}else{
+						imgs[0].setAttribute("src",imgs[num].getAttribute("src"));
+					}
+				}
+			}
+
+			//自动轮播
+			function step(){
+				buttons[flag].className="";
+				imgs[flag].id="";
+				if(flag>=buttons.length-1){
+					flag=0;
+				}else{
+					flag=flag+1;
+				}
+				buttons[flag].className="current";
+				imgs[flag].id="tu6_1";
+				timeout=setTimeout(step,3000);
+			}
+			timeout=setTimeout(step,3000);
+
+			lunbo.onmouseover=function(event){
+				if(event.target.nodeName=="IMG"){
+					clearTimeout(timeout);
+				}
+			}
+			lunbo.onmouseout=function(event){
+				if(event.target.nodeName=="IMG"){	
+					timeout=setTimeout(step,3000);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="all">
+		<div class="one">
+			<div class="one1">
+				<img src="./images/2.png" alt="" id="tu1">
+			</div>
+			<div class="one2">
+				<img src="./images/1.png" alt="" id="tu2">
+				<span class="one21"><a href="./login.html">请登录</a></span>
+				<span>|</span>
+				<span class="one22"><a href="./register.html">注册</a></span>
+				<span class="one23"><a href="#">全部游戏</a></span>
+				<img src="./images/3.png" alt="" id="tu3">
+			</div>
+		</div>
+
+		<div class="two">
+			<img src="./images/32.png" alt="" id="tu4">
+		</div>
+
+		<div class="three">
+			<div class="three1">
+				<div class="three11">
+					<span><a href="#" class="t1">新闻公告</a></span>
+					<span><a href="#" class="t2">活动</a></span>
+					<span><a href="#" class="t3">攻略</a></span>
+					<img src="./images/4.png" alt="" id="tu5">
+				</div>
+				<hr class="hr1">
+				<div class="hr2"></div>
+				<ul>
+					<li><a href="#">《阴阳师》夏日火花会开启 玉藻前结界</a></li>
+					<span class="y">07-10</span>
+					<li><a href="#">《阴阳师》X《犬夜叉》联动角色获得</a></li>
+					<span class="y">07-10</span>
+					<li><a href="#">《阴阳师》烟烟罗浴衣新装降临！</a></li>
+					<span class="y">07-10</span>
+					<li><a href="#">《阴阳师》食发鬼花火会主题新装降</a></li>
+					<span class="y">07-10</span>
+					<li><a href="#">《阴阳师》X《犬夜叉》联动情报：半</a></li>
+					<span class="y">07-10</span>
+					<li><a href="#">犬夜叉，杀生丸降临！《阴阳师》</a></li>
+					<span class="y">07-10</span>
+				</ul>
+			</div>
+			<div class="three2">
+				<div class="lun">
+					<div class="lunbo">
+						<img flag="0" src="./images/28.jpg" alt="1" id="tu6_1">
+						<img flag="1" src="./images/23.jpg" alt="2" id="tu6_2">
+						<img flag="2" src="./images/25.jpg" alt="3" id="tu6_3">
+					</div>
+				</div>
+				<div class="checkbutton">
+					<button class="current"></button>
+					<button></button>
+					<button></button>
+				</div>
+			</div>
+			<div class="three3">
+				<h2>游戏简介</h2>
+				<br>
+				<span class="three31">结界震荡，流云乱舞，最近的平安京似乎又将迎来一场大风波。《阴阳师》全新资料片第二弹“新年祭·年始初诣”拉开序幕，呆萌的呱太，愤怒的石距陆续来袭，请各位阴阳师做好应战准备！还有更多惊喜活动等你来看！</span><br>
+				<a href="#"><img src="./images/6.png" alt="" id="tu7"></a>
+			</div>
+		</div>		
+	</div>
+	<div class="footer">
+		<div class="footer1">
+			<img src="./images/13.png" alt="" id="tu8">
+		</div>
+		<div class="footer2">
+			<div class="footer21">
+				<span><a href="#">关于StarGame</a></span>
+				<span>|</span>
+				<span><a href="#">招聘信息</a></span>
+				<span>|</span>
+				<span><a href="#">用户协议</a></span>
+				<span>|</span>
+				<span><a href="#">法律声明</a></span>
+				<span>|</span>
+				<span><a href="#">家长监护</a></span>
+				<span>|</span>
+				<span><a href="#">网站地图</a></span>
+			</div>
+			<div class="footer22">
+				<span>渝ICP备14007792号-4</span>
+				<span>渝网文[2015]1041-1042号</span>
+				<p>重庆星游传媒有限公司Copyright&copy;2014-2015</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

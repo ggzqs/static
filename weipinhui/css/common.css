@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+	padding: 0;
+	color: #333333;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+ul li{
+	list-style: none;
+	display: inline-block;
+}
+ol li{
+	list-style: none;
+}
+select,input{
+	border: none;
+	outline: none;
+}
